@@ -8,4 +8,4 @@ staticfiles/
 .vscode/
 .idea/*.png
 venv/
-*.png
+
