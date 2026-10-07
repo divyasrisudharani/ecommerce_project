@@ -1,25 +1,37 @@
 # E-Commerce Platform Backend
 
-A full-featured E-Commerce backend developed using Django, Django REST Framework, FastAPI, and MySQL.
+## Project Overview
+Brief description of the e-commerce backend.
 
-## Tech Stack
+## Features
+- User registration and JWT authentication
+- Role-based access control
+- Product and category management
+- Cart management
+- Order management
+- Payment processing
+- Stripe test integration and webhook
+- Email notifications
+- Real-time WebSocket notifications
+- Django Admin dashboard
+- Analytics
+- CSV/PDF reports
+- REST APIs
+- Automated testing
 
+## Technology Stack
 - Python
 - Django
 - Django REST Framework
 - FastAPI
 - MySQL
 - SQLAlchemy
-- JWT Authentication
-- Stripe Test Mode
+- JWT
+- Stripe
 - WebSocket
-- SMTP Email
-- Postman
-- Swagger / OpenAPI
+- Pytest
 
 ## Project Structure
-
-```text
 ecommerce_project/
 ├── django_backend/
 │   ├── config/
@@ -36,57 +48,43 @@ ecommerce_project/
 │   └── auth.py
 ├── .gitignore
 └── README.md
-## Key Features
 
-- User registration and JWT-based authentication
-- Secure password hashing
-- Role-based access control for Customer, Staff, and Admin
-- Product and category management
-- Product image upload
-- Product stock management
-- Shopping cart management
-- Cart item management
-- Order creation and order history
-- Order status management
-- Stripe test-mode payment processing
-- Stripe webhook handling
-- Payment status tracking
-- Database notifications
-- Mark notifications as read
-- Real-time WebSocket notifications
-- Email notification support
-- Django Admin management
-- Order analytics dashboard
-- Daily payment summary
-- CSV report generation
-- PDF report generation
-- REST API development
-- FastAPI Swagger/OpenAPI documentation
-- Postman API testing
-- MySQL database integration
-- Environment-based configuration for sensitive credentials
-- Git/GitHub version control
-## Backend Architecture
+## API
+Django API: http://127.0.0.1:8000/
+FastAPI API: http://127.0.0.1:8001/
+FastAPI Swagger: http://127.0.0.1:8001/docs
 
-The project uses two backend frameworks:
+## Authentication
+JWT-based authentication and role-based authorization.
 
-### Django Backend
-Handles:
-- User management
-- Product management
-- Orders
-- Payments
-- Notifications
-- Admin dashboard
-- Reports
-
-### FastAPI Backend
-Handles:
-- FastAPI APIs
+## Security
+- Environment variables for sensitive configuration
+- Password hashing
 - JWT authentication
-- Cart operations
-- Order operations
-- Payment processing
-- Stripe integration
-- WebSocket notifications
-- API documentation
+- No credentials committed to GitHub
+- .env excluded using .gitignore
+
+## Testing
+
+Django:
+python manage.py test
+
+FastAPI:
+python -m pytest -q
+
+## Screenshots
+Screenshots of Admin, Swagger, Analytics, WebSocket, etc.
+
+## How to Run
+
+### Django
+cd django_backend
+python manage.py runserver
+
+### FastAPI
+cd fastapi_backend
+uvicorn main:app --reload --port 8001
+
+## Author
+Divyasri sudharani
+
