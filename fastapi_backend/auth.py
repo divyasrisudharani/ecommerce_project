@@ -4,7 +4,9 @@ from passlib.context import CryptContext
 from jose import jwt
 from model import User
 from database import get_db
-
+from pathlib import Path
+import os
+from dotenv import load_dotenv
 
 pwd_context = CryptContext(
     schemes=["bcrypt"],
@@ -12,8 +14,7 @@ pwd_context = CryptContext(
 )
 
 security = HTTPBearer()
-
-SECRET_KEY = "ecommerce-secret-key-change-later"
+SECRET_KEY = os.getenv("JWT_SECRET_KEY")
 ALGORITHM = "HS256"
 
 

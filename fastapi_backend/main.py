@@ -8,8 +8,13 @@ from model import Base, User,Product,Cart,CartItem,Order,OrderItem,Payment,Notif
 from schemas import UserRegister, UserResponse,UserLogin,TokenResponse,ProductCreate,ProductResponse,CartItemCreate,CartItemResponse,CartResponse,CartItemUpdate,CartItemDetail,OrderItemResponse,OrderResponse,PaymentCreate,PaymentResponse,NotificationCreate,NotificationResponse
 from auth import hash_password,verify_password,create_access_token,get_current_user,get_admin_or_staff
 from fastapi_mail import FastMail, MessageSchema, ConnectionConfig
-stripe.api_key = "sk_test_51UN5a37cVbtQ2bNpUxPsXJrDWaUbe8ihQJ1JECFd8IgSAOmWISszQuYa2evl6BpcYfKM8m31MqaQ6sPztZWYvMHz00DcscIvOq"
-STRIPE_WEBHOOK_SECRET = "whsec_f2bd745d41a26a95dfb32fafcdd0e0e75f8322c45112081278146811e7af775c"
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
+STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET")
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
@@ -17,8 +22,8 @@ app = FastAPI(
     version="1.0.0"
 )
 mail_config = ConnectionConfig(
-    MAIL_USERNAME="veerankidivyasrisudharani@gmail.com",
-    MAIL_PASSWORD="nods netk qktn ieaq",
+    MAIL_USERNAME = os.getenv("MAIL_USERNAME"),
+    MAIL_PASSWORD = os.getenv("MAIL_PASSWORD"),
     MAIL_FROM="veerankidivyasrisudharani@gmail.com",
     MAIL_PORT=465,
     MAIL_SERVER="smtp.gmail.com",
